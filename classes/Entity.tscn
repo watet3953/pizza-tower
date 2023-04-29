@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://h7h817bai48p"]
+
+[ext_resource type="Script" path="res://classes/Entity.gd" id="1_6oijk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8d6b5"]
+
+[node name="Entity" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_6oijk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_8d6b5")
+
+[node name="Reach" type="RayCast2D" parent="."]
