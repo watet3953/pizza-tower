@@ -1,18 +1,40 @@
-[gd_scene load_steps=4 format=3 uid="uid://ckf0o3yrvvk6b"]
+[gd_scene load_steps=5 format=3 uid="uid://ckf0o3yrvvk6b"]
 
 [ext_resource type="Script" path="res://classes/Item.gd" id="1_13jjk"]
 [ext_resource type="Texture2D" uid="uid://bnmqgacwxtjji" path="res://icon.svg" id="2_ov32q"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ddkkx"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_yfvdm"]
 radius = 25.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ddkkx"]
+radius = 26.0
 
 [node name="Item" type="RigidBody2D"]
 position = Vector2(-118, 98)
+collision_layer = 3
+collision_mask = 3
+freeze_mode = 1
+linear_damp = 5.0
 script = ExtResource("1_13jjk")
 
 [node name="Collider" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_ddkkx")
+shape = SubResource("CircleShape2D_yfvdm")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Shadow" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0.196078)
+z_index = -1
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_ov32q")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+z_index = -1
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_ov32q")
+
+[node name="Interactor" type="Area2D" parent="."]
+
+[node name="Collider" type="CollisionShape2D" parent="Interactor"]
+shape = SubResource("CircleShape2D_ddkkx")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="Interactor" to="." method="_on_interactor_body_entered"]
