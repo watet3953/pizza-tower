@@ -1,8 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://h7h817bai48p"]
+[gd_scene load_steps=4 format=3 uid="uid://h7h817bai48p"]
 
 [ext_resource type="Script" path="res://classes/Entity.gd" id="1_6oijk"]
+[ext_resource type="Texture2D" uid="uid://c87k164lq07bc" path="res://heham.png" id="2_tob2s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8d6b5"]
+size = Vector2(64, 64)
 
 [node name="Entity" type="CharacterBody2D"]
 motion_mode = 1
@@ -12,3 +14,8 @@ script = ExtResource("1_6oijk")
 shape = SubResource("RectangleShape2D_8d6b5")
 
 [node name="Reach" type="RayCast2D" parent="."]
+target_position = Vector2(50000, 0)
+
+[node name="Heham" type="Sprite2D" parent="."]
+scale = Vector2(0.365, 0.54)
+texture = ExtResource("2_tob2s")

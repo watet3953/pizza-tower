@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://ckf0o3yrvvk6b"]
+
+[ext_resource type="Script" path="res://classes/Item.gd" id="1_13jjk"]
+[ext_resource type="Texture2D" uid="uid://bnmqgacwxtjji" path="res://icon.svg" id="2_ov32q"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ddkkx"]
+radius = 25.0
+
+[node name="Item" type="RigidBody2D"]
+position = Vector2(-118, 98)
+script = ExtResource("1_13jjk")
+
+[node name="Collider" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ddkkx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_ov32q")

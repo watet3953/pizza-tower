@@ -1,5 +1,5 @@
-# Item.gd
-# Class for items that can be picked up and thrown
+## Item.gd
+## Class for items that can be picked up and thrown
 
 extends RigidBody2D
 class_name Item
@@ -13,6 +13,8 @@ var thrown : bool = false
 
 var fallDelta : float = 0.0
 
+@onready var collider : CollisionShape2D = $Collider
+
 func _ready():
 	linear_damp = weight
 
@@ -24,9 +26,15 @@ func _process(delta):
 			linear_damp = weight
 			if fragile:
 				queue_free()
+		if fallDelta <= 0.8:
+			collider.disabled = false
+
+func _set_collision(toggle : bool):
+		collider.disabled = !toggle
 
 func _throw(force : float, direction : Vector2):
 	thrown = true
-	linear_velocity = direction * weight * force
+	linear_velocity += direction * force * (1 / weight)
 	linear_damp = 0.0
-	fallDelta = 5.0
+	fallDelta = 1.0
+	collider.disabled = true
