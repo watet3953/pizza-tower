@@ -57,4 +57,3 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("3_moqku")
 
 [node name="GameManager" parent="." instance=ExtResource("4_us84o")]
-timerMax = 10.0
