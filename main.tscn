@@ -8,14 +8,31 @@
 
 [node name="Node" type="Node"]
 
+[node name="Generic" parent="." instance=ExtResource("2_qvvfl")]
+
+[node name="Fragile" parent="." instance=ExtResource("2_qvvfl")]
+modulate = Color(0.184314, 0.756863, 0, 1)
+position = Vector2(-182, 94)
+fragile = true
+
+[node name="Stun" parent="." instance=ExtResource("2_qvvfl")]
+modulate = Color(1, 0, 1, 1)
+position = Vector2(-248, 96)
+canStun = true
+
+[node name="Slip" parent="." instance=ExtResource("2_qvvfl")]
+modulate = Color(1, 0.537255, 0.427451, 1)
+position = Vector2(-319, 100)
+canTrip = true
+
 [node name="Player" parent="." instance=ExtResource("1_m3uhb")]
 position = Vector2(33, 31)
-
-[node name="Item" parent="." instance=ExtResource("2_qvvfl")]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(-462.68, -183.784)
 scale = Vector2(50, 1)
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("RectangleShape2D_vw77y")
@@ -28,6 +45,8 @@ texture = ExtResource("3_moqku")
 position = Vector2(-462.68, -183.784)
 rotation = -1.57079
 scale = Vector2(50, 1)
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
 shape = SubResource("RectangleShape2D_vw77y")
