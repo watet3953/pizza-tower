@@ -12,6 +12,8 @@ class_name Item
 
 var thrown : bool = false
 
+var inactive : bool = false
+
 var fallDelta : float = 0.0
 
 @onready var collider : CollisionShape2D = $Collider
@@ -33,6 +35,7 @@ func _process(delta):
 			if fragile:
 				queue_free()
 		elif fallDelta <= 0.8:
+			inactive = false
 			set_collision_layer_value(1, true)
 			set_collision_mask_value(1, true)
 
@@ -42,8 +45,9 @@ func _set_collision(toggle : bool):
 
 func _catch():
 	thrown = false
+	inactive = true
 	linear_velocity = Vector2.ZERO
-	linear_damp = 0.0
+	linear_damp = 5.0
 	fallDelta = 0.0
 	sprite.global_position = global_position
 	set_collision_layer_value(1, false)
@@ -51,6 +55,7 @@ func _catch():
 
 func _throw(force : float, direction : Vector2):
 	thrown = true
+	inactive = true
 	linear_velocity += direction * force * (1 / weight)
 	linear_damp = 0.0
 	fallDelta = 1.0
@@ -60,8 +65,10 @@ func _throw(force : float, direction : Vector2):
 
 
 func _on_body_entered(body):
+	if not visible or inactive:
+		return
 	if body is Entity:
-		if canStun and thrown:
+		if canStun and thrown and get_collision_layer_value(1):
 			body._stun()
 		if canTrip:
 			body._stun()
@@ -70,6 +77,8 @@ func _on_body_entered(body):
 
 
 func _on_interactor_body_entered(body):
+	if not visible or inactive:
+		return
 	if body is Entity:
 		if canStun and thrown and get_collision_layer_value(1):
 			body._stun()

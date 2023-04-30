@@ -55,6 +55,7 @@ func _pickUp():
 		elif grab.get_collider().get_parent() is Item:
 			heldItem = grab.get_collider().get_parent()
 		if heldItem != null:
+			heldItem.inactive = true
 			heldItem.position = Vector2(0,0)
 			heldItem.visible = false
 			heldItem._catch()
@@ -64,6 +65,7 @@ func _pickUp():
 func _drop():
 	remove_child(heldItem)
 	get_parent().add_child(heldItem)
+	heldItem.inactive = false
 	heldItem.visible = true
 	heldItem._set_collision(heldItem.solid)
 	heldItem.global_position = global_position + grab.target_position.rotated(rotation)

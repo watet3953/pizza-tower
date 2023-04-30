@@ -8,8 +8,9 @@ var moveDirection := Vector2.ZERO
 var moveForce : float = 0.0
 
 func _physics_process(_delta):
-	look_at(get_global_mouse_position())
-	_move(moveDirection,moveForce)
+	if not stunned:
+		look_at(get_global_mouse_position())
+		_move(moveDirection,moveForce)
 
 func _input(_event):
 	moveDirection = Vector2.ZERO
