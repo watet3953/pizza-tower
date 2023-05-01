@@ -58,6 +58,7 @@ func _process(delta):
 		rng.randomize()
 		lifeDelta = rng.randi_range(20, 24)
 		itemChance = 3
+		print(foodItem.foodName)
 	# if item is not food, randomize which base item is spawned
 	if itemChance == 2:
 		item = NEWITEM.instantiate()
@@ -70,6 +71,7 @@ func _process(delta):
 		rng.randomize()
 		lifeDelta = rng.randi_range(20, 24)
 		itemChance = 4
+		print(item.id)
 	
 	# if item spawned, start counting down for life time
 	if lifeDelta > 0:
