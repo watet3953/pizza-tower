@@ -7,11 +7,10 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 	
 
 func _on_area_2d_body_entered(body):
-	print(body.get_name())
-	if body is FoodItem:
-		print("yay")
+	if body is Item:
+		print(body.itemName)

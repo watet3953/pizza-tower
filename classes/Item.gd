@@ -18,16 +18,18 @@ var inactive : bool = false
 
 var id : int = 0
 
-var itemName = ""
+var itemName : String
 
 var fallDelta : float = 0.0
 
 @onready var collider : CollisionShape2D = $Collider
 @onready var sprite : Sprite2D = $Sprite
+@onready var shadow : Sprite2D = $Shadow
 
 func _ready():
 	set_collision_layer_value(1, solid)
 	set_collision_mask_value(1, solid)
+	shadow.texture = sprite.texture
 
 func _process(delta):
 	if thrown:
@@ -54,9 +56,10 @@ func _craft_item():
 			sprite.texture = load("res://assets/ItemSprites/bananapeel.png")
 			itemName = "Banana Peel"
 		canTrip = true
+		solid = false
 	if id == 2:
 		if self is FoodItem:
-			modulate = Color8(0, 255, 255, 255)
+			modulate = Color8(130, 255, 255, 255)
 			itemName = "Sharp " + itemName
 		else:
 			sprite.texture = load("res://assets/ItemSprites/glass.png")
@@ -96,6 +99,7 @@ func _craft_item():
 			itemName = "Stone"
 		solid = true
 	if id >= 7:
+		modulate = Color8(255, 255, 255, 255)
 		sprite.texture = load("res://assets/ItemSprites/notbob.png")
 		itemName = "???"
 
