@@ -42,11 +42,11 @@ func _process(delta):
 	# coinflip if item is food or not
 	if spawnItem:
 		rng.randomize()
-		itemChance = rng.randi_range(1, 2)
+		itemChance = rng.randi_range(1, 3)
 		spawnItem = false
 	
 	# if item is food, randomize which base food is spawned
-	if itemChance == 1:
+	if itemChance == 1 or itemChance == 2:
 		foodItem = NEWFOOD.instantiate()
 		get_parent().add_child(foodItem)
 		foodItem.inactive = false
@@ -58,9 +58,9 @@ func _process(delta):
 		foodItem.itemName = foodItem.foodName
 		rng.randomize()
 		lifeDelta = rng.randi_range(20, 24)
-		itemChance = 3
+		itemChance = 4
 	# if item is not food, randomize which base item is spawned
-	if itemChance == 2:
+	if itemChance == 3:
 		item = NEWITEM.instantiate()
 		get_parent().add_child(item)
 		item.inactive = false
@@ -71,21 +71,21 @@ func _process(delta):
 		item._craft_item()
 		rng.randomize()
 		lifeDelta = rng.randi_range(20, 24)
-		itemChance = 4
+		itemChance = 5
 	
 	# if item spawned, start counting down for life time
 	if lifeDelta > 0:
 		lifeDelta -= delta
 	
 	# reset timer if player picks up food item
-	if itemChance == 3 and foodItem != null and foodItem.held:
+	if itemChance == 4 and foodItem != null and foodItem.held:
 		rng.randomize()
 		spawnDelta = rng.randi_range(4, 8)
 		foodItem = null
 		itemChance = 0
 		lifeDelta = 0
 	# reset timer if player picks up item
-	if itemChance == 4 and item != null and item.held:
+	if itemChance == 5 and item != null and item.held:
 		rng.randomize()
 		spawnDelta = rng.randi_range(4, 8)
 		item = null
@@ -93,14 +93,14 @@ func _process(delta):
 		lifeDelta = 0
 	
 	# despawn food item
-	if lifeDelta <= 0 and itemChance == 3 and foodItem != null and not foodItem.held:
+	if lifeDelta <= 0 and itemChance == 4 and foodItem != null and not foodItem.held:
 		get_parent().remove_child(foodItem)
 		rng.randomize()
 		spawnDelta = rng.randi_range(4, 8)
 		foodItem = null
 		itemChance = 0
 	# despawn item
-	if lifeDelta <= 0 and itemChance == 4 and foodItem != null and not item.held:
+	if lifeDelta <= 0 and itemChance == 5 and foodItem != null and not item.held:
 		get_parent().remove_child(item)
 		rng.randomize()
 		spawnDelta = rng.randi_range(4, 8)
