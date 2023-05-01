@@ -28,7 +28,6 @@ texture = ExtResource("2_ybvfn")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 z_index = -1
-scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_ybvfn")
 
 [node name="Interactor" type="Area2D" parent="."]

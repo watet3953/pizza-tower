@@ -1,12 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://c4mge5tbuq8mq"]
+[gd_scene load_steps=13 format=3 uid="uid://d3yq0nue26wu4"]
 
 [ext_resource type="Texture2D" uid="uid://0imhgbih2vr0" path="res://ATLASTESTfooddeckdineanddash.png" id="1_j7ysx"]
 [ext_resource type="Texture2D" uid="uid://bl1blw15pm07j" path="res://ATLAS20THEATLASSINGwankytown.png" id="2_p0pjo"]
 [ext_resource type="PackedScene" uid="uid://d2rkgiu4ma1qr" path="res://classes/player.tscn" id="3_ynkom"]
-[ext_resource type="PackedScene" path="res://classes/Item_Spawner.tscn" id="4_y410u"]
+[ext_resource type="PackedScene" uid="uid://ds0h0t3jmysih" path="res://classes/Item_Spawner.tscn" id="4_y410u"]
 [ext_resource type="PackedScene" uid="uid://vyaedpam36og" path="res://classes/FoodItem.tscn" id="4_ygg1o"]
 [ext_resource type="PackedScene" uid="uid://b1x0q5rfd4rn7" path="res://GameManager.tscn" id="5_bckp5"]
-[ext_resource type="PackedScene" path="res://classes/DropOff.tscn" id="6_vdage"]
+[ext_resource type="PackedScene" uid="uid://co3aetupy0hnf" path="res://classes/DropOff.tscn" id="6_vdage"]
 [ext_resource type="PackedScene" uid="uid://jx75kayh1lwm" path="res://classes/HUD.tscn" id="7_8mj5i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qocv8"]
@@ -712,3 +712,5 @@ position = Vector2(3040, 2592)
 
 [node name="DropOff151" parent="DropOffs" instance=ExtResource("6_vdage")]
 position = Vector2(3360, 2592)
+
+[node name="HUD" parent="." instance=ExtResource("7_8mj5i")]

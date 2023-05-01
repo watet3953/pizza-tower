@@ -24,10 +24,12 @@ var fallDelta : float = 0.0
 
 @onready var collider : CollisionShape2D = $Collider
 @onready var sprite : Sprite2D = $Sprite
+@onready var shadow : Sprite2D = $Shadow
 
 func _ready():
 	set_collision_layer_value(1, solid)
 	set_collision_mask_value(1, solid)
+	shadow.texture = sprite.texture
 
 func _process(delta):
 	if thrown:

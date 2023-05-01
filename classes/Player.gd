@@ -39,7 +39,7 @@ func _physics_process(_delta):
 			heldItem = craft1
 			craft1 = null
 			craft2 = null
-		elif craft1.id == 0 or craft2.id == 0:
+#		elif craft1.id == 0 or craft2.id == 0:
 			
 
 func _input(_event):
