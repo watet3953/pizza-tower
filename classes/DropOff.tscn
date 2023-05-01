@@ -1,3 +1,9 @@
-[gd_scene format=3 uid="uid://cx1okll3bowlf"]
+[gd_scene load_steps=2 format=3 uid="uid://cx1okll3bowlf"]
+
+[ext_resource type="Texture2D" uid="uid://353d0ba04kvb" path="res://assets/dropoff.png" id="1_liowb"]
 
 [node name="DropOff" type="Node2D"]
+
+[node name="Sprite" type="Sprite2D" parent="."]
+z_index = -1
+texture = ExtResource("1_liowb")
