@@ -4,6 +4,20 @@ extends Node2D
 var timer = 0.0
 @export var timerOn = false
 
+var rng = RandomNumberGenerator.new()
+
+@export var ordersMax = 5
+var ordersArr = [[1,1,0,0,0,0,0,0]]
+var ordersActive = []
+@export var ingredientsPerOrder = 3
+var orderUpgradeLevel = 0
+var orderLevels = [
+	[[0,0,1,1,0,0,0,0], [1,0,1,1,0,0,0,0], [1,1,1,1,0,0,0,0], [0,1,1,1,0,0,0,0], [0,1,0,1,0,0,0,0]], # level 1
+	[[1,1,1,1,1,0,0,0], [1,0,1,1,1,0,0,0], [1,1,0,0,1,0,0,0], [1,0,0,1,1,0,0,0], [1,1,0,1,1,0,0,0], [1,0,0,0,1,0,0,0]], # level 2
+	[[0,1,0,0,1,0,1,0], [0,0,0,0,1,0,1,0]], # level 3
+	[[0,0,0,1,0,1,0,0], [0,0,0,0,1,1,0,0], [0,1,0,0,0,1,0,0], [0,1,0,1,0,1,0,0], [0,0,0,1,1,1,0,0]] # level 4
+]
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -23,7 +37,46 @@ func dayStart():
 	print("DAY START")
 	timer = timerMax
 	timerOn = true
+	ordersActive = []
+	for i in ordersMax:
+		generateOrder()
+	print(ordersActive)
 
 func _input(_event): # debug, remove at cleanup
 	if Input.is_key_pressed(KEY_T):
 		dayStart()
+	if Input.is_key_pressed(KEY_U):
+		upgradeOrders()
+
+func upgradeOrders():
+	if orderUpgradeLevel < orderLevels.size():
+		orderUpgradeLevel += 1
+		ordersArr.append_array(orderLevels[orderUpgradeLevel-1])
+		print("level:")
+		print(orderUpgradeLevel)
+	else:
+		print("max level")
+	
+
+func generateOrder():
+	var chance = rng.randi_range(0, ordersArr.size()-1)
+	spawnOrder(ordersArr[chance])
+	ordersActive.append(ordersArr[chance])
+	#print(ordersActive)
+	
+func spawnOrder(order):
+	for i in order.size():
+		if order[i] > 0:
+			for j in ingredientsPerOrder:
+				spawnFoodItem(createBaseIngredient(i))
+	
+func createBaseIngredient(num):
+	var newBase = [0,0,0,0,0,0,0,0]
+	newBase[num] += 1
+	return newBase
+
+func spawnFoodItem(food):
+	print(food)
+	# this needs to spawn at a random position
+	
+
