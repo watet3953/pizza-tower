@@ -6,8 +6,6 @@ var timer = 0.0
 
 var rng = RandomNumberGenerator.new()
 
-@onready var itemImage = get_parent().get_node("HUD/TextureRect/ItemSprite")
-
 @export var ordersMax = 5
 var ordersArr = [[1,1,0,0,0,0,0,0]]
 var ordersActive = []
@@ -21,6 +19,7 @@ var orderLevels = [
 	[[0,1,0,0,1,0,1,0], [0,0,0,0,1,0,1,0]], # level 3
 	[[0,0,0,1,0,1,0,0], [0,0,0,0,1,1,0,0], [0,1,0,0,0,1,0,0], [0,1,0,1,0,1,0,0], [0,0,0,1,1,1,0,0]] # level 4
 ]
+var dropoffMax = 151 # amount of DropOff in level
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -74,9 +73,14 @@ func upgradeOrders():
 	
 
 func generateOrder():
+	var chonce = rng.randi_range(1, dropoffMax)
 	var chance = rng.randi_range(0, ordersArr.size()-1)
-	spawnOrder(ordersArr[chance])
-	ordersActive.append(ordersArr[chance])
+	var order = []
+	order.append(chonce)
+	order.append(ordersArr[chance])
+	spawnOrder(order[1])
+	ordersActive.append(order)
+	openDropOff(order)
 	#print(ordersActive)
 	
 func spawnOrder(order):
@@ -95,3 +99,6 @@ func spawnFoodItem(food):
 	# this needs to spawn at a random position
 	
 
+func openDropOff(order):
+	var path = "DropOffs/DropOff"+str(order[0])
+	print(path)

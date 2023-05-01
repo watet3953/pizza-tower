@@ -12,8 +12,8 @@ func _process(delta):
 	else:
 		lifeDelta -= delta
 	
-	if lifeDelta <= 0:
-		queue_free()
+	#if lifeDelta <= 0:
+	#	queue_free()
 
 func foodAdd(newFood): # used to add new food together
 	for i in 8:
