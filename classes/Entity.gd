@@ -10,6 +10,7 @@ class_name Entity
 @export var style : float = 1.0
 @export var reach : float = 100.0
 @export var throwForce : float = 250.0
+@export var slipTime : float = 3.0 # time in seconds to recover from a stun/slip
 
 @export var heldMoney : float = 0.0
 
@@ -36,6 +37,7 @@ func _move(direction : Vector2, speed : float):
 func _process(delta):
 	if stunned:
 		stunDelta -= delta
+		velocity *= 0.9
 		if stunDelta <= 0.0:
 			stunned = false
 	move_and_slide()
@@ -100,5 +102,5 @@ func _push():
 
 func _stun():
 	stunned = true
-	stunDelta = 3.0
+	stunDelta = slipTime
 	
