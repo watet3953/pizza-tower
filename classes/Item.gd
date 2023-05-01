@@ -18,6 +18,8 @@ var inactive : bool = false
 
 var id : int = 0
 
+var itemName = ""
+
 var fallDelta : float = 0.0
 
 @onready var collider : CollisionShape2D = $Collider
@@ -42,6 +44,60 @@ func _process(delta):
 			inactive = false
 			set_collision_layer_value(1, true)
 			set_collision_mask_value(1, true)
+
+func _craft_item():
+	if id == 1:
+		if self is FoodItem:
+			modulate = Color8(255, 255, 0, 255)
+			itemName = "Slippery " + itemName
+		else:
+			sprite.texture = load("res://assets/ItemSprites/bananapeel.png")
+			itemName = "Banana Peel"
+		canTrip = true
+	if id == 2:
+		if self is FoodItem:
+			modulate = Color8(0, 255, 255, 255)
+			itemName = "Sharp " + itemName
+		else:
+			sprite.texture = load("res://assets/ItemSprites/glass.png")
+			itemName = "Glass"
+		canStun = true
+		fragile = true
+	if id == 3:
+		if self is FoodItem:
+			modulate = Color8(0, 255, 0, 255)
+			itemName = "Stinky " + itemName
+		else:
+			sprite.texture = load("res://assets/ItemSprites/trash.png")
+			itemName = "Trash"
+		canStun = true
+	if id == 4:
+		if self is FoodItem:
+			modulate = Color8(130, 130, 255, 255)
+			itemName = "Light " + itemName
+		else:
+			sprite.texture = load("res://assets/ItemSprites/feather.png")
+			itemName = "Feather"
+		weight = 0.5
+	if id == 5:
+		if self is FoodItem:
+			modulate = Color8(130, 130, 130, 255)
+			itemName = "Heavy " + itemName
+		else:
+			sprite.texture = load("res://assets/ItemSprites/metal.png")
+			itemName = "Metal"
+		weight = 2.0
+	if id == 6:
+		if self is FoodItem:
+			modulate = Color8(50, 50, 50, 255)
+			itemName = "Sturdy " + itemName
+		else:
+			sprite.texture = load("res://assets/ItemSprites/stone.png")
+			itemName = "Stone"
+		solid = true
+	if id >= 7:
+		sprite.texture = load("res://assets/ItemSprites/notbob.png")
+		itemName = "???"
 
 func _set_collision(toggle : bool):
 	set_collision_layer_value(1,toggle)

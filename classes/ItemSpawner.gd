@@ -55,6 +55,7 @@ func _process(delta):
 		rng.randomize()
 		foodItem.foodArr[foodList[rng.randi_range(0, GameManager.foodMax)]] += 1
 		foodItem.foodCheck()
+		foodItem.itemName = foodItem.foodName
 		rng.randomize()
 		lifeDelta = rng.randi_range(20, 24)
 		itemChance = 3
@@ -67,7 +68,8 @@ func _process(delta):
 		item.visible = true
 		item.global_position = global_position
 		rng.randomize()
-		item.id = rng.randi_range(1, 5)
+		item.id = rng.randi_range(1, 6)
+		item._craft_item()
 		rng.randomize()
 		lifeDelta = rng.randi_range(20, 24)
 		itemChance = 4
