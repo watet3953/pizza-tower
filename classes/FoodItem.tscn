@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://d18uii2nhqs35"]
+[gd_scene load_steps=5 format=3 uid="uid://vyaedpam36og"]
 
 [ext_resource type="Script" path="res://classes/FoodItem.gd" id="1_lcqtg"]
 [ext_resource type="Texture2D" uid="uid://bnmqgacwxtjji" path="res://icon.svg" id="2_ybvfn"]
@@ -10,12 +10,12 @@ radius = 25.0
 radius = 26.0
 
 [node name="FoodItem" type="RigidBody2D"]
-position = Vector2(-118, 98)
 collision_layer = 3
 collision_mask = 3
 freeze_mode = 1
 linear_damp = 5.0
 script = ExtResource("1_lcqtg")
+foodArr = [1, 0, 0, 0, 0, 0, 0, 0]
 
 [node name="Collider" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_yfvdm")
