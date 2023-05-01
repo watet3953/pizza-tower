@@ -10,7 +10,7 @@ var rng = RandomNumberGenerator.new()
 var ordersArr = [[1,1,0,0,0,0,0,0]]
 var ordersActive = []
 @export var ingredientsPerOrder = 3
-var day = 1
+var day = 3
 var foodMax = 2
 var orderUpgradeLevel = 0
 var orderLevels = [
@@ -34,7 +34,6 @@ func _process(delta):
 		if timer < 0:
 			print("DAY END")
 			timerOn = false
-			day += 1
 	
 	if day == 1:
 		foodMax = 2
@@ -51,6 +50,7 @@ func dayStart():
 	print("DAY START")
 	timer = timerMax
 	timerOn = true
+	day += 1
 	ordersActive = []
 	for i in ordersMax:
 		generateOrder()
