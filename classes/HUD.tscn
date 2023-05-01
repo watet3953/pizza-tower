@@ -1,8 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://jx75kayh1lwm"]
+[gd_scene load_steps=2 format=3 uid="uid://jx75kayh1lwm"]
 
 [ext_resource type="Texture2D" uid="uid://bxiwuixk25d0w" path="res://assets/inventory_slot.png" id="1_5bw6y"]
-
-[sub_resource type="ImageTexture" id="ImageTexture_f30hv"]
 
 [node name="HUD" type="CanvasLayer"]
 
@@ -15,4 +13,3 @@ texture = ExtResource("1_5bw6y")
 expand_mode = 1
 
 [node name="ItemSprite" type="Sprite2D" parent="TextureRect"]
-texture = SubResource("ImageTexture_f30hv")

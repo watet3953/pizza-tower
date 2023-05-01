@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://ckf0o3yrvvk6b" path="res://classes/Item.tscn" id="2_qvvfl"]
 [ext_resource type="Texture2D" uid="uid://bnmqgacwxtjji" path="res://icon.svg" id="3_moqku"]
 [ext_resource type="PackedScene" uid="uid://b1x0q5rfd4rn7" path="res://GameManager.tscn" id="4_us84o"]
-[ext_resource type="PackedScene" path="res://classes/Item_Spawner.tscn" id="5_g31dc"]
-[ext_resource type="PackedScene" path="res://classes/HUD.tscn" id="6_4bacn"]
+[ext_resource type="PackedScene" uid="uid://ds0h0t3jmysih" path="res://classes/Item_Spawner.tscn" id="5_g31dc"]
+[ext_resource type="PackedScene" uid="uid://jx75kayh1lwm" path="res://classes/HUD.tscn" id="6_4bacn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vw77y"]
 
