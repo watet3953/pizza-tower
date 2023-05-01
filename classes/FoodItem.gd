@@ -2,17 +2,18 @@ extends Item
 class_name FoodItem
 
 # what is the FoodItem?
+@export var lifeDelta : int = 600
 @export var foodArr = [0,0,0,0,0,0,0,0] # Bread, Meat, Lettuce, Tomato, Cheese, Noodle, Potato, banana
 var foodName = "" # changes dynamically based on foodArr
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if held:
+		lifeDelta = 600
+	else:
+		lifeDelta -= delta
+	
+	if lifeDelta <= 0:
+		queue_free()
 
 func foodAdd(newFood): # used to add new food together
 	for i in 8:

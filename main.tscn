@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bkpas52wg8k5j"]
+[gd_scene load_steps=7 format=3 uid="uid://bkpas52wg8k5j"]
 
 [ext_resource type="PackedScene" uid="uid://d2rkgiu4ma1qr" path="res://classes/player.tscn" id="1_m3uhb"]
 [ext_resource type="PackedScene" uid="uid://ckf0o3yrvvk6b" path="res://classes/Item.tscn" id="2_qvvfl"]
 [ext_resource type="Texture2D" uid="uid://bnmqgacwxtjji" path="res://icon.svg" id="3_moqku"]
 [ext_resource type="PackedScene" uid="uid://b1x0q5rfd4rn7" path="res://GameManager.tscn" id="4_us84o"]
+[ext_resource type="PackedScene" uid="uid://ds0h0t3jmysih" path="res://classes/Item_Spawner.tscn" id="5_g31dc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vw77y"]
 
@@ -57,3 +58,6 @@ scale = Vector2(0.2, 0.2)
 texture = ExtResource("3_moqku")
 
 [node name="GameManager" parent="." instance=ExtResource("4_us84o")]
+
+[node name="ItemSpawner" parent="." instance=ExtResource("5_g31dc")]
+position = Vector2(-220, 357)

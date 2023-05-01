@@ -63,6 +63,7 @@ func _pickUp():
 			heldItem._catch()
 			heldItem.get_parent().remove_child(heldItem)
 			add_child(heldItem)
+			heldItem.held = true
 
 func _drop():
 	remove_child(heldItem)
@@ -72,6 +73,7 @@ func _drop():
 	heldItem._set_collision(heldItem.solid)
 	heldItem.global_position = global_position + grab.target_position.rotated(rotation)
 	heldItem.linear_velocity = velocity
+	heldItem.held = false
 	heldItem = null
 
 func _force():

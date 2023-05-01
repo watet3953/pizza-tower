@@ -12,7 +12,11 @@ class_name Item
 
 var thrown : bool = false
 
+var held : bool = false
+
 var inactive : bool = false
+
+var id : int = 0
 
 var fallDelta : float = 0.0
 
