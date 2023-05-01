@@ -54,6 +54,7 @@ func _craft_item():
 			itemName = "Slippery " + itemName
 		else:
 			sprite.texture = load("res://assets/ItemSprites/bananapeel.png")
+			shadow.texture = load("res://assets/ItemSprites/bananapeel.png")
 			itemName = "Banana Peel"
 		canTrip = true
 		solid = false
@@ -63,6 +64,7 @@ func _craft_item():
 			itemName = "Sharp " + itemName
 		else:
 			sprite.texture = load("res://assets/ItemSprites/glass.png")
+			shadow.texture = load("res://assets/ItemSprites/glass.png")
 			itemName = "Glass"
 		canStun = true
 		fragile = true
@@ -72,6 +74,7 @@ func _craft_item():
 			itemName = "Stinky " + itemName
 		else:
 			sprite.texture = load("res://assets/ItemSprites/trash.png")
+			shadow.texture = load("res://assets/ItemSprites/trash.png")
 			itemName = "Trash"
 		canStun = true
 	if id == 4:
@@ -80,6 +83,7 @@ func _craft_item():
 			itemName = "Light " + itemName
 		else:
 			sprite.texture = load("res://assets/ItemSprites/feather.png")
+			shadow.texture = load("res://assets/ItemSprites/feather.png")
 			itemName = "Feather"
 		weight = 0.5
 	if id == 5:
@@ -88,6 +92,7 @@ func _craft_item():
 			itemName = "Heavy " + itemName
 		else:
 			sprite.texture = load("res://assets/ItemSprites/metal.png")
+			shadow.texture = load("res://assets/ItemSprites/metal.png")
 			itemName = "Metal"
 		weight = 2.0
 	if id == 6:
@@ -96,11 +101,13 @@ func _craft_item():
 			itemName = "Sturdy " + itemName
 		else:
 			sprite.texture = load("res://assets/ItemSprites/stone.png")
+			shadow.texture = load("res://assets/ItemSprites/stone.png")
 			itemName = "Stone"
 		solid = true
 	if id >= 7:
 		modulate = Color8(255, 255, 255, 255)
 		sprite.texture = load("res://assets/ItemSprites/notbob.png")
+		shadow.texture = load("res://assets/ItemSprites/notbob.png")
 		itemName = "???"
 
 func _set_collision(toggle : bool):
