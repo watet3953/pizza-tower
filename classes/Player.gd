@@ -22,6 +22,10 @@ var itemsHeld = [null, null, null]
 
 var current : int = 0
 
+var crafting : bool = false
+var craft1 : Item = null
+var craft2 : Item = null
+
 func _physics_process(_delta):
 	if not stunned:
 		look_at(get_global_mouse_position())
@@ -48,6 +52,8 @@ func _input(_event):
 		_grab()
 	if Input.is_action_just_pressed("force"):
 		_force()
+	if Input.is_key_pressed(KEY_R):
+		crafting = true
 	if Input.is_key_pressed(KEY_1):
 		slot1.modulate = Color8(180, 180, 180, 255)
 		slot2.modulate = Color8(255, 255, 255, 255)
@@ -69,16 +75,18 @@ func _input(_event):
 
 func _pickUp():
 	super()
-	if heldItem != null:
+	if heldItem != null and not crafting:
 		itemsHeld[current] = heldItem
 		items[current].texture = heldItem.sprite.texture
 
 func _drop():
-	itemsHeld[current] = null
-	items[current].texture = null
+	if not crafting:
+		itemsHeld[current] = null
+		items[current].texture = null
 	super()
 
 func _throw():
-	itemsHeld[current] = null
-	items[current].texture = null
+	if not crafting:
+		itemsHeld[current] = null
+		items[current].texture = null
 	super()

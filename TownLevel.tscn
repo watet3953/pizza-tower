@@ -3,10 +3,15 @@
 [ext_resource type="Texture2D" uid="uid://0imhgbih2vr0" path="res://ATLASTESTfooddeckdineanddash.png" id="1_j7ysx"]
 [ext_resource type="Texture2D" uid="uid://bl1blw15pm07j" path="res://ATLAS20THEATLASSINGwankytown.png" id="2_p0pjo"]
 [ext_resource type="PackedScene" uid="uid://d2rkgiu4ma1qr" path="res://classes/player.tscn" id="3_ynkom"]
-[ext_resource type="PackedScene" uid="uid://ds0h0t3jmysih" path="res://classes/Item_Spawner.tscn" id="4_y410u"]
+[ext_resource type="PackedScene" path="res://classes/Item_Spawner.tscn" id="4_y410u"]
+[ext_resource type="PackedScene" uid="uid://vyaedpam36og" path="res://classes/FoodItem.tscn" id="4_ygg1o"]
 [ext_resource type="PackedScene" uid="uid://b1x0q5rfd4rn7" path="res://GameManager.tscn" id="5_bckp5"]
+<<<<<<< Updated upstream
 [ext_resource type="PackedScene" path="res://classes/DropOff.tscn" id="6_vdage"]
 [ext_resource type="PackedScene" uid="uid://jx75kayh1lwm" path="res://classes/HUD.tscn" id="7_8mj5i"]
+=======
+[ext_resource type="PackedScene" uid="uid://cx1okll3bowlf" path="res://classes/DropOff.tscn" id="6_vdage"]
+>>>>>>> Stashed changes
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qocv8"]
 texture = ExtResource("1_j7ysx")
@@ -75,7 +80,9 @@ format = 2
 layer_0/tile_data = PackedInt32Array(0, 131073, 4, 65535, 1, 1, 1, 262145, 1, -1, 131073, 1, -131071, 131073, 1, -65535, 1, 1, -131072, 262145, 1, -65537, 262145, 1, 196607, 1, 3, 262143, 1, 3, 327679, 1, 3, 393216, 1, 3, 458752, 1, 3, 458753, 1, 3, 524289, 1, 3, 589825, 1, 3, 131073, 131073, 3, 196609, 131073, 3, 524286, 131073, 3, 589822, 131073, 3, 262145, 262145, 3, 327681, 262145, 3, 393217, 262145, 3, 524288, 262145, 3, 589824, 262145, 3, 327678, 262145, 3, 393214, 262145, 3, 458750, 262145, 3, 655358, 262145, 3, -65542, 1, 0, -65541, 1, 0, -5, 131073, 0, -4, 131073, 0, -65539, 131073, 0, -65540, 131073, 0, -3, 262145, 0, -6, 262145, 0, -65544, 262145, 0, -8, 262145, 0, 65528, 262145, 0, 131064, 1, 0, 131065, 1, 0, 131066, 1, 0, 196602, 262145, 0, 196603, 262145, 0, 196604, 262145, 0, 196600, 1, 0, 131067, 131073, 0, 131068, 131073, 0, 131069, 1, 0, 196605, 1, 0, 196601, 131073, 0, 327672, 1, 2, 393208, 262145, 2, 458745, 1, 2, 327673, 131073, 2, 393209, 131073, 2, 458744, 131073, 2, 589816, 262145, 2, 655352, 262145, 2, 851962, 262145, 2, 589818, 131073, 2, 851961, 131073, 2, 851960, 131073, 2, 786424, 1, 2, 720888, 1, 2, 589817, 1, 2, 327675, 131073, 3, 393211, 131073, 3, 458747, 131073, 3, 524284, 262145, 3, 589820, 131073, 3, 655356, 131073, 3, 786428, 131073, 3, 327676, 262145, 3, 393212, 262145, 3, 458748, 262145, 3, 851963, 262145, 3, 851964, 1, 3, 524283, 1, 3, 786433, 262145, 1, 786432, 262145, 1, 851967, 131073, 1, 851966, 131073, 1, 786431, 1, 1, 720896, 131073, 1, 720897, 131073, 1, 786430, 1, 1, -131065, 131073, 1, 8, 131073, 1, 65545, 262145, 1, 196617, 131073, 1, 262153, 131073, 1, 393225, 131073, 1, 458761, 131073, 1, 458762, 131073, 1, 458760, 131073, 1, 393224, 1, 1, 393223, 1, 1, 262152, 131073, 1, 196616, 131073, 1, 9, 131073, 1, 10, 131073, 1, 262154, 1, 1, 196618, 1, 1, 65546, 1, 1, 65544, 262145, 1, 65543, 1, 1, 7, 1, 1, -131062, 1, 1, -131064, 262145, 1, -131063, 262145, 1, 196615, 262145, 1, 262151, 262145, 1, 393226, 262145, 1, 458759, 262145, 1, 720905, 262145, 1, 720903, 1, 4, 589833, 1, 4, 786442, 1, 4, 655367, 65537, 4, 655370, 65537, 4, 786440, 65537, 4, 589832, 65537, 4, 720906, 65537, 4, 786439, 1, 4, 589831, 1, 4, 589834, 1, 4, 851958, 131073, 2, 786422, 131073, 2, 720885, 262145, 2, 655349, 262145, 2, 589813, 131073, 2, 589814, 262145, 2, 655350, 262145, 2, 786421, 262145, 2, 720886, 1, 2, 851957, 1, 2, 458742, 131073, 0, 393206, 131073, 0, 393205, 131073, 0, 327669, 131073, 0, 262133, 262145, 0, 196597, 262145, 0, 131061, 131073, 0, 65525, 262145, 0, -11, 262145, 0, -65547, 262145, 0, 131062, 262145, 0, 196598, 262145, 0, 262134, 1, 0, 327670, 1, 0, 458741, 1, 0, -65546, 1, 0, -10, 1, 0, 65526, 1, 0, 655355, 1, 0, 655354, 1, 0, 720889, 131073, 0, 786425, 1, 0, 786427, 131073, 0, 655353, 131073, 0, 786426, 262145, 0, 589819, 131073, 3, -65536, 1, 4)
 
 [node name="Player" parent="." instance=ExtResource("3_ynkom")]
-position = Vector2(-856, 2444)
+position = Vector2(160, 352)
+
+[node name="FoodItem" parent="." instance=ExtResource("4_ygg1o")]
 
 [node name="ItemSpawners" type="Node2D" parent="."]
 
@@ -254,7 +261,7 @@ scale = Vector2(4359.55, 80038.5)
 
 [node name="DropOffs" type="Node2D" parent="."]
 
-[node name="DropOff" parent="DropOffs" instance=ExtResource("6_vdage")]
+[node name="DropOff1" parent="DropOffs" instance=ExtResource("6_vdage")]
 position = Vector2(-3552, -480)
 
 [node name="DropOff2" parent="DropOffs" instance=ExtResource("6_vdage")]
@@ -528,13 +535,13 @@ position = Vector2(480, -672)
 position = Vector2(-352, -160)
 
 [node name="DropOff92" parent="DropOffs" instance=ExtResource("6_vdage")]
-position = Vector2(-160, 352)
+position = Vector2(-352, 160)
 
 [node name="DropOff93" parent="DropOffs" instance=ExtResource("6_vdage")]
 position = Vector2(672, -160)
 
 [node name="DropOff94" parent="DropOffs" instance=ExtResource("6_vdage")]
-position = Vector2(480, 352)
+position = Vector2(672, 160)
 
 [node name="DropOff95" parent="DropOffs" instance=ExtResource("6_vdage")]
 position = Vector2(32, 800)
