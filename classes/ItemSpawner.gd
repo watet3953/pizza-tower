@@ -80,14 +80,14 @@ func _process(delta):
 		lifeDelta -= delta
 	
 	# reset timer if player picks up food item
-	if itemChance == 3 and foodItem.held:
+	if itemChance == 3 and foodItem != null and foodItem.held:
 		rng.randomize()
 		spawnDelta = rng.randi_range(4, 8)
 		foodItem = null
 		itemChance = 0
 		lifeDelta = 0
 	# reset timer if player picks up item
-	if itemChance == 4 and item.held:
+	if itemChance == 4 and item != null and item.held:
 		rng.randomize()
 		spawnDelta = rng.randi_range(4, 8)
 		item = null
@@ -95,14 +95,14 @@ func _process(delta):
 		lifeDelta = 0
 	
 	# despawn food item
-	if lifeDelta <= 0 and itemChance == 3 and not foodItem.held:
+	if lifeDelta <= 0 and itemChance == 3 and foodItem != null and not foodItem.held:
 		get_parent().remove_child(foodItem)
 		rng.randomize()
 		spawnDelta = rng.randi_range(4, 8)
 		foodItem = null
 		itemChance = 0
 	# despawn item
-	if lifeDelta <= 0 and itemChance == 4 and not item.held:
+	if lifeDelta <= 0 and itemChance == 4 and foodItem != null and not item.held:
 		get_parent().remove_child(item)
 		rng.randomize()
 		spawnDelta = rng.randi_range(4, 8)

@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://0imhgbih2vr0" path="res://ATLASTESTfooddeckdineanddash.png" id="1_j7ysx"]
 [ext_resource type="Texture2D" uid="uid://bl1blw15pm07j" path="res://ATLAS20THEATLASSINGwankytown.png" id="2_p0pjo"]
 [ext_resource type="PackedScene" uid="uid://d2rkgiu4ma1qr" path="res://classes/player.tscn" id="3_ynkom"]
-[ext_resource type="PackedScene" path="res://classes/Item_Spawner.tscn" id="4_y410u"]
+[ext_resource type="PackedScene" uid="uid://ds0h0t3jmysih" path="res://classes/Item_Spawner.tscn" id="4_y410u"]
 [ext_resource type="PackedScene" uid="uid://b1x0q5rfd4rn7" path="res://GameManager.tscn" id="5_bckp5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qocv8"]
