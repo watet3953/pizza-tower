@@ -26,6 +26,24 @@ func foodCheck(): # used to rename/resprite the food
 func foodRename():
 	if foodArr == [0,0,0,0,0,0,0,0]:
 		foodName = "Nullburger"
+		
+	elif foodArr == [1,0,0,0,0,0,0,0]:
+		foodName = "Bread"
+	elif foodArr == [0,1,0,0,0,0,0,0]:
+		foodName = "Meat"
+	elif foodArr == [0,0,1,0,0,0,0,0]:
+		foodName = "Lettuce"
+	elif foodArr == [0,0,0,1,0,0,0,0]:
+		foodName = "Tomato"
+	elif foodArr == [0,0,0,0,1,0,0,0]:
+		foodName = "Cheese"
+	elif foodArr == [0,0,0,0,0,1,0,0]:
+		foodName = "Noodle"
+	elif foodArr == [0,0,0,0,0,0,1,0]:
+		foodName = "Potato"
+	elif foodArr == [0,0,0,0,0,0,0,1]:
+		foodName = "Banana"
+		
 	elif foodArr == [1,1,1,1,0,0,0,0]:
 		foodName = "Deluxeburger"
 	elif foodArr == [1,1,1,1,1,0,0,0]:
