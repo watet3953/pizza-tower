@@ -1,6 +1,3 @@
-## FoodItem.gd
-## Class for food items that can be orders
-
 extends Item
 class_name FoodItem
 
@@ -20,9 +17,8 @@ func _process(delta):
 
 func foodAdd(newFood): # used to add new food together
 	for i in 8:
-		foodArr[i] += newFood.foodArr[i]
+		foodArr[i] += newFood[i]
 	foodCheck()
-	itemName = foodName
 	
 func foodCheck():
 	if foodArr == [0,0,0,0,0,0,0,0]:
@@ -117,10 +113,3 @@ func foodCheck():
 	elif foodArr == [1,1,1,1,1,1,1,1]:
 		foodName = "Everythingburger"
 		sprite.texture = load("res://assets/FoodItemSprites/everythingburger.png")
-	
-	else:
-		id = 7
-		_craft_item()
-
-func get_foodName():
-	return foodName
