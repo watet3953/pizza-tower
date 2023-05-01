@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c4mge5tbuq8mq"]
+[gd_scene load_steps=11 format=3 uid="uid://c4mge5tbuq8mq"]
 
 [ext_resource type="Texture2D" uid="uid://0imhgbih2vr0" path="res://ATLASTESTfooddeckdineanddash.png" id="1_j7ysx"]
 [ext_resource type="Texture2D" uid="uid://bl1blw15pm07j" path="res://ATLAS20THEATLASSINGwankytown.png" id="2_p0pjo"]
@@ -6,12 +6,8 @@
 [ext_resource type="PackedScene" path="res://classes/Item_Spawner.tscn" id="4_y410u"]
 [ext_resource type="PackedScene" uid="uid://vyaedpam36og" path="res://classes/FoodItem.tscn" id="4_ygg1o"]
 [ext_resource type="PackedScene" uid="uid://b1x0q5rfd4rn7" path="res://GameManager.tscn" id="5_bckp5"]
-<<<<<<< Updated upstream
 [ext_resource type="PackedScene" path="res://classes/DropOff.tscn" id="6_vdage"]
 [ext_resource type="PackedScene" uid="uid://jx75kayh1lwm" path="res://classes/HUD.tscn" id="7_8mj5i"]
-=======
-[ext_resource type="PackedScene" uid="uid://cx1okll3bowlf" path="res://classes/DropOff.tscn" id="6_vdage"]
->>>>>>> Stashed changes
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qocv8"]
 texture = ExtResource("1_j7ysx")
@@ -258,6 +254,9 @@ scale = Vector2(4359.55, 80038.5)
 position = Vector2(-608, -480)
 rotation = 3.14159
 scale = Vector2(4359.55, 80038.5)
+
+[node name="GameManager" parent="." instance=ExtResource("5_bckp5")]
+position = Vector2(-864, 2592)
 
 [node name="DropOffs" type="Node2D" parent="."]
 
@@ -713,8 +712,3 @@ position = Vector2(3040, 2592)
 
 [node name="DropOff151" parent="DropOffs" instance=ExtResource("6_vdage")]
 position = Vector2(3360, 2592)
-
-[node name="GameManager" parent="." instance=ExtResource("5_bckp5")]
-position = Vector2(-864, 2592)
-
-[node name="HUD" parent="." instance=ExtResource("7_8mj5i")]
