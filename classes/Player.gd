@@ -106,6 +106,7 @@ func _drop():
 
 func _throw():
 	if not crafting:
+		print(itemsHeld[current].itemName)
 		itemsHeld[current] = null
 		items[current].texture = null
 	super()

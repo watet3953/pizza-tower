@@ -18,7 +18,7 @@ var inactive : bool = false
 
 var id : int = 0
 
-var itemName = ""
+var itemName : String
 
 var fallDelta : float = 0.0
 

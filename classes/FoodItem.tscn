@@ -15,7 +15,6 @@ collision_mask = 3
 freeze_mode = 1
 linear_damp = 5.0
 script = ExtResource("1_lcqtg")
-foodArr = [1, 0, 0, 0, 0, 0, 0, 0]
 
 [node name="Collider" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_yfvdm")
@@ -36,4 +35,3 @@ texture = ExtResource("2_ybvfn")
 shape = SubResource("CircleShape2D_ddkkx")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="body_entered" from="Interactor" to="." method="_on_interactor_body_entered"]

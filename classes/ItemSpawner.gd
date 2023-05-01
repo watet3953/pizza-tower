@@ -27,7 +27,7 @@ func _process(delta):
 	# when timer reaches 0, coinflip if item spawns or not
 	if spawnDelta <= 0 and foodItem == null and item == null:
 		rng.randomize()
-		spawnChance = rng.randi_range(1, 1)
+		spawnChance = rng.randi_range(1, 2)
 	
 	# if item spawns
 	if spawnChance == 1:
@@ -42,7 +42,7 @@ func _process(delta):
 	# coinflip if item is food or not
 	if spawnItem:
 		rng.randomize()
-		itemChance = rng.randi_range(1, 1)
+		itemChance = rng.randi_range(1, 2)
 		spawnItem = false
 	
 	# if item is food, randomize which base food is spawned
@@ -59,7 +59,6 @@ func _process(delta):
 		rng.randomize()
 		lifeDelta = rng.randi_range(20, 24)
 		itemChance = 3
-		print(foodItem.foodName)
 	# if item is not food, randomize which base item is spawned
 	if itemChance == 2:
 		item = NEWITEM.instantiate()

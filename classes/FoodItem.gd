@@ -1,3 +1,6 @@
+## FoodItem.gd
+## Class for food items that can be orders
+
 extends Item
 class_name FoodItem
 
@@ -12,8 +15,8 @@ func _process(delta):
 	else:
 		lifeDelta -= delta
 	
-	#if lifeDelta <= 0:
-	#	queue_free()
+	if lifeDelta <= 0:
+		queue_free()
 
 func foodAdd(newFood): # used to add new food together
 	for i in 8:
@@ -113,3 +116,6 @@ func foodCheck():
 	elif foodArr == [1,1,1,1,1,1,1,1]:
 		foodName = "Everythingburger"
 		sprite.texture = load("res://assets/FoodItemSprites/everythingburger.png")
+
+func get_foodName():
+	return foodName
