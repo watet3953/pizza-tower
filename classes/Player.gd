@@ -71,10 +71,6 @@ func _input(_event):
 		slot3.modulate = Color8(255, 255, 255, 255)
 		heldItem = itemsHeld[0]
 		current = 0
-		if crafting and craft1 == null:
-			craft1 = heldItem
-		elif crafting and craft2 == null:
-			craft2 = heldItem
 	if Input.is_key_pressed(KEY_2):
 		slot1.modulate = Color8(255, 255, 255, 255)
 		slot2.modulate = Color8(180, 180, 180, 255)
