@@ -13,6 +13,8 @@ var spawnChance : int = 0
 var spawnItem : bool = false
 var itemChance : int = 0
 
+var foodList = [0, 1, 7, 2, 3, 4, 6, 5]
+
 func _ready():
 	rng.randomize()
 	spawnDelta = rng.randi_range(240, 480)
@@ -51,10 +53,11 @@ func _process(delta):
 		foodItem.visible = true
 		foodItem.global_position = global_position
 		rng.randomize()
-		foodItem.foodArr[rng.randi_range(0, 7)] += 1
+		foodItem.foodArr[foodList[rng.randi_range(0, GameManager.foodMax)]] += 1
 		rng.randomize()
 		lifeDelta = rng.randi_range(1200, 1440)
 		itemChance = 3
+		print(foodItem.foodArr)
 	# if item is not food, randomize which base item is spawned
 	if itemChance == 2:
 		item = NEWITEM.instantiate()
@@ -67,6 +70,7 @@ func _process(delta):
 		rng.randomize()
 		lifeDelta = rng.randi_range(1200, 1440)
 		itemChance = 4
+		print(item.id)
 	
 	# if item spawned, start counting down for life time
 	if lifeDelta > 0:
