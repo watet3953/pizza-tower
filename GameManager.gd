@@ -6,8 +6,6 @@ var timer = 0.0
 
 var rng = RandomNumberGenerator.new()
 
-@onready var itemImage = get_parent().get_node("HUD/TextureRect/ItemSprite")
-
 @export var ordersMax = 5
 var ordersArr = [[1,1,0,0,0,0,0,0]]
 var ordersActive = []

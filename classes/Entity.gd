@@ -18,6 +18,8 @@ class_name Entity
 
 @onready var grab : RayCast2D = $Reach
 
+@onready var itemImage : Sprite2D = get_parent().get_node("HUD/TextureRect/ItemSprite")
+
 var stunDelta : float = 0.0
 
 var stunned : bool = false
@@ -64,6 +66,8 @@ func _pickUp():
 			heldItem.get_parent().remove_child(heldItem)
 			add_child(heldItem)
 			heldItem.held = true
+		if self is Player:
+			itemImage.texture = heldItem.sprite.texture
 
 func _drop():
 	remove_child(heldItem)
@@ -74,6 +78,8 @@ func _drop():
 	heldItem.global_position = global_position + grab.target_position.rotated(rotation)
 	heldItem.linear_velocity = velocity
 	heldItem.held = false
+	if self is Player:
+		itemImage.texture = null
 	heldItem = null
 
 func _force():
