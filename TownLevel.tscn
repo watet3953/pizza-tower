@@ -173,6 +173,14 @@ layer_0/tile_data = PackedInt32Array(0, 131073, 4, 65535, 1, 1, 1, 262145, 1, -1
 
 [node name="Player" parent="." instance=ExtResource("3_ynkom")]
 position = Vector2(160, 352)
+weight = null
+acceleration = null
+topSpeed = null
+style = null
+reach = null
+throwForce = null
+slipTime = null
+heldMoney = null
 
 [node name="ItemSpawners" type="Node2D" parent="."]
 

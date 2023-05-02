@@ -5,5 +5,13 @@
 
 [node name="Player" instance=ExtResource("1_ajv6o")]
 script = ExtResource("2_o7y7r")
+weight = null
+acceleration = null
+topSpeed = null
+style = null
+reach = null
+throwForce = null
+slipTime = null
+heldMoney = null
 
 [node name="Camera2D" type="Camera2D" parent="." index="2"]

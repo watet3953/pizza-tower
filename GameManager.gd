@@ -7,12 +7,14 @@ var timer = 0.0
 var rng = RandomNumberGenerator.new()
 
 @export var ordersMax = 5
-var ordersArr = [[1,1,0,0,0,0,0,0]]
+var ordersArr = [[1,1,0,0,0,0,0,0], [0,0,1,1,0,0,0,0], [1,0,1,1,0,0,0,0], [1,1,1,1,0,0,0,0], [0,1,1,1,0,0,0,0], [0,1,0,1,0,0,0,0], 
+	[1,1,1,1,1,0,0,0], [1,0,1,1,1,0,0,0], [1,1,0,0,1,0,0,0], [1,0,0,1,1,0,0,0], [1,1,0,1,1,0,0,0], [1,0,0,0,1,0,0,0], [0,1,0,0,1,0,1,0], [0,0,0,0,1,0,1,0],
+	[0,0,0,1,0,1,0,0], [0,0,0,0,1,1,0,0], [0,1,0,0,0,1,0,0], [0,1,0,1,0,1,0,0], [0,0,0,1,1,1,0,0]]
 var ordersActive = []
 @export var ingredientsPerOrder = 3
-var day = 3
+var day = 5
 var foodMax = 2
-var orderUpgradeLevel = 0
+var orderUpgradeLevel = 4
 var orderLevels = [
 	[[0,0,1,1,0,0,0,0], [1,0,1,1,0,0,0,0], [1,1,1,1,0,0,0,0], [0,1,1,1,0,0,0,0], [0,1,0,1,0,0,0,0]], # level 1
 	[[1,1,1,1,1,0,0,0], [1,0,1,1,1,0,0,0], [1,1,0,0,1,0,0,0], [1,0,0,1,1,0,0,0], [1,1,0,1,1,0,0,0], [1,0,0,0,1,0,0,0]], # level 2
@@ -23,7 +25,8 @@ var dropoffMax = 151 # amount of DropOff in level
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	for i in orderUpgradeLevel:
+		ordersArr.append(orderLevels[i])
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -102,3 +105,99 @@ func spawnFoodItem(food):
 func openDropOff(order):
 	var path = "DropOffs/DropOff"+str(order[0])
 	print(path)
+
+func foodCheck(foodArr, foodName, sprite):
+	if foodArr == [0,0,0,0,0,0,0,0]:
+		foodName = "Nullburger"
+		sprite.texture = load("res://assets/FoodItemSprites/nullburger.png")
+		
+	elif foodArr == [1,0,0,0,0,0,0,0]:
+		foodName = "Bread"
+		sprite.texture = load("res://assets/FoodItemSprites/bread.png")
+	elif foodArr == [0,1,0,0,0,0,0,0]:
+		foodName = "Meat"
+		sprite.texture = load("res://assets/FoodItemSprites/meat.png")
+	elif foodArr == [0,0,1,0,0,0,0,0]:
+		foodName = "Lettuce"
+		sprite.texture = load("res://assets/FoodItemSprites/lettuce.png")
+	elif foodArr == [0,0,0,1,0,0,0,0]:
+		foodName = "Tomato"
+		sprite.texture = load("res://assets/FoodItemSprites/tomato.png")
+	elif foodArr == [0,0,0,0,1,0,0,0]:
+		foodName = "Cheese"
+		sprite.texture = load("res://assets/FoodItemSprites/cheese.png")
+	elif foodArr == [0,0,0,0,0,1,0,0]:
+		foodName = "Noodle"
+		sprite.texture = load("res://assets/FoodItemSprites/noodle.png")
+	elif foodArr == [0,0,0,0,0,0,1,0]:
+		foodName = "Potato"
+		sprite.texture = load("res://assets/FoodItemSprites/potato.png")
+	elif foodArr == [0,0,0,0,0,0,0,1]:
+		foodName = "Banana"
+		sprite.texture = load("res://assets/FoodItemSprites/banana.png")
+		
+	elif foodArr == [1,1,1,1,0,0,0,0]:
+		foodName = "Deluxeburger"
+		sprite.texture = load("res://assets/FoodItemSprites/deluxeburger.png")
+	elif foodArr == [1,1,1,1,1,0,0,0]:
+		foodName = "Cheluxeburger"
+		sprite.texture = load("res://assets/FoodItemSprites/cheluxeburger.png")
+	elif foodArr == [1,1,0,0,0,0,0,0]:
+		foodName = "Hamburger"
+		sprite.texture = load("res://assets/FoodItemSprites/hamburger.png")
+	elif foodArr == [1,1,0,0,1,0,0,0]:
+		foodName = "Cheeseburger"
+		sprite.texture = load("res://assets/FoodItemSprites/cheeseburger.png")
+	elif foodArr == [0,0,1,1,0,0,0,0]:
+		foodName = "Salad"
+		sprite.texture = load("res://assets/FoodItemSprites/salad.png")
+	elif foodArr == [1,0,1,1,0,0,0,0]:
+		foodName = "Veganburger"
+		sprite.texture = load("res://assets/FoodItemSprites/veganburger.png")
+	elif foodArr == [1,0,1,1,1,0,0,0]:
+		foodName = "Veggieburger"
+		sprite.texture = load("res://assets/FoodItemSprites/veggieburger.png")
+	elif foodArr == [1,0,0,1,1,0,0,0]:
+		foodName = "Cheese Pizza"
+		sprite.texture = load("res://assets/FoodItemSprites/cheesepizza.png")
+	elif foodArr == [1,1,0,1,1,0,0,0]:
+		foodName = "Pepperoni Pizza"
+		sprite.texture = load("res://assets/FoodItemSprites/pepperonipizza.png")
+	elif foodArr == [0,1,1,1,0,0,0,0]:
+		foodName = "Plantburger"
+		sprite.texture = load("res://assets/FoodItemSprites/plantburger.png")
+	elif foodArr == [1,0,0,0,1,0,0,0]:
+		foodName = "Grilled Cheese"
+		sprite.texture = load("res://assets/FoodItemSprites/grilledcheese.png")
+	elif foodArr == [1,0,0,0,0,0,0,1]:
+		foodName = "Banana Bread"
+		sprite.texture = load("res://assets/FoodItemSprites/bananabread.png")
+	elif foodArr == [0,1,0,1,0,0,0,0]:
+		foodName = "Chili"
+		sprite.texture = load("res://assets/FoodItemSprites/chili.png")
+	elif foodArr == [0,0,0,0,1,1,0,0]:
+		foodName = "Mac N Cheese"
+		sprite.texture = load("res://assets/FoodItemSprites/macncheese.png")
+	elif foodArr == [0,1,0,0,0,1,0,0]:
+		foodName = "Chicken Noodle"
+		sprite.texture = load("res://assets/FoodItemSprites/chickennoodle.png")
+	elif foodArr == [0,0,0,1,0,1,0,0]:
+		foodName = "Pasta"
+		sprite.texture = load("res://assets/FoodItemSprites/pasta.png")
+	elif foodArr == [0,1,0,1,0,1,0,0]:
+		foodName = "Spaghetti"
+		sprite.texture = load("res://assets/FoodItemSprites/spaghetti.png")
+	elif foodArr == [0,0,0,1,1,1,0,0]:
+		foodName = "Lasagna"
+		sprite.texture = load("res://assets/FoodItemSprites/lasagna.png")
+	elif foodArr == [0,1,0,0,1,0,1,0]:
+		foodName = "Poutine"
+		sprite.texture = load("res://assets/FoodItemSprites/poutine.png")
+	elif foodArr == [0,0,0,0,1,0,1,0]:
+		foodName = "Baked Potato"
+		sprite.texture = load("res://assets/FoodItemSprites/bakedpotato.png")
+	elif foodArr == [1,1,1,1,1,1,1,1]:
+		foodName = "Everythingburger"
+		sprite.texture = load("res://assets/FoodItemSprites/everythingburger.png")
+		
+	return [foodName, sprite]

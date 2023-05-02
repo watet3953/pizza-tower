@@ -38,7 +38,7 @@ func _physics_process(_delta):
 	
 	for i in 3:
 		if itemsHeld[i] != null:
-			images[i].texture = itemsHeld[i].sprite.texture
+			images[i].texture = itemsHeld[i]d.sprite.texture
 			labels[i].text = itemsHeld[i].itemName
 		else:
 			images[i].texture = null
